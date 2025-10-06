@@ -95,19 +95,25 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 **GET `/api/v2/academia/alunos`** — listar alunos
 
+<img width="961" height="904" alt="image" src="https://github.com/user-attachments/assets/027644f5-bade-4d95-a391-1fc4030f92cc" />
 
 
 **GET `/api/v2/academia/alunos/{id}`** — buscar por id
 
+<img width="959" height="886" alt="image" src="https://github.com/user-attachments/assets/86bfdc31-6b0a-494c-9464-decece864042" />
+
 
 **PUT `/api/v2/academia/alunos/{id}`** — atualizar aluno
 
+<img width="962" height="888" alt="image" src="https://github.com/user-attachments/assets/682a94f6-17f5-45ec-9146-e48d0796aa33" />
 
 
 **DELETE `/api/v2/academia/alunos/{id}`** — remover aluno
 
 
 **POST `/api/v2/academia/alunos/{alunoId}/treinos/{treinoId}`** — vincular treino
+
+<img width="958" height="688" alt="image" src="https://github.com/user-attachments/assets/facb5477-9699-4629-8a62-8afed0bc6cd0" />
 
 
 **DELETE `/api/v2/academia/alunos/{alunoId}/treinos/{treinoId}`** — desvincular treino
@@ -189,5 +195,6 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 
 ---
+
 
 
