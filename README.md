@@ -90,9 +90,11 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 **POST `/api/v2/academia/alunos`** — criar aluno
 
+<img width="958" height="894" alt="image" src="https://github.com/user-attachments/assets/4564efa3-9a88-4d56-8691-d2cf33ea68b8" />
 
 
 **GET `/api/v2/academia/alunos`** — listar alunos
+
 
 
 **GET `/api/v2/academia/alunos/{id}`** — buscar por id
@@ -124,16 +126,22 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 **GET `/api/v2/academia/planos`** — listar planos
 
-![Uploading image.png…]()
+<img width="958" height="766" alt="image" src="https://github.com/user-attachments/assets/c3638fa0-f1b9-4d18-a228-a4162aab7b08" />
 
 
 **GET `/api/v2/academia/planos/{id}`** — buscar por id
 
+<img width="960" height="603" alt="image" src="https://github.com/user-attachments/assets/a3af7668-a202-45c4-a640-cddc85a8c4e1" />
+
 
 **PUT `/api/v2/academia/planos/{id}`** — atualizar plano
 
+<img width="959" height="892" alt="image" src="https://github.com/user-attachments/assets/b47c85a3-1b5c-4618-b4fa-2df4c4711711" />
+
 
 **DELETE `/api/v2/academia/planos/{id}`** — remover plano
+
+<img width="961" height="576" alt="image" src="https://github.com/user-attachments/assets/1cfe752d-a9a0-4142-b88f-f138fbff9cf0" />
 
 
 ---
@@ -142,18 +150,27 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 **POST `/api/v2/academia/treinos`** — criar treino
 
+<img width="944" height="814" alt="image" src="https://github.com/user-attachments/assets/cc352736-adf0-488c-9630-2890cd92e223" />
+
 
 **GET `/api/v2/academia/treinos`** — listar treinos
+
+<img width="961" height="808" alt="image" src="https://github.com/user-attachments/assets/5e40eba3-d2a5-4073-8036-38127ec3bfb3" />
 
 
 **GET `/api/v2/academia/treinos/{id}`** — buscar por id
 
+<img width="958" height="800" alt="image" src="https://github.com/user-attachments/assets/25ae0cf4-d482-4206-9f9d-63f1577d21ef" />
+
 
 **PUT `/api/v2/academia/treinos/{id}`** — atualizar treino
+
+<img width="957" height="900" alt="image" src="https://github.com/user-attachments/assets/6c6d6289-d878-49b1-97de-14e3dde799d9" />
 
 
 **DELETE `/api/v2/academia/treinos/{id}`** — remover treino
 
+<img width="959" height="575" alt="image" src="https://github.com/user-attachments/assets/0629e162-4ad8-48c1-9631-c37993aca12e" />
 
 ---
 
@@ -172,4 +189,5 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 
 ---
+
 
