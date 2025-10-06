@@ -85,6 +85,7 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 <img width="1323" height="910" alt="image" src="https://github.com/user-attachments/assets/47503897-1a2d-437a-8133-095f1997eaa5" />
 
+---
 
 ### 2) Alunos (v2)
 
@@ -92,6 +93,7 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 <img width="958" height="894" alt="image" src="https://github.com/user-attachments/assets/4564efa3-9a88-4d56-8691-d2cf33ea68b8" />
 
+---
 
 **GET `/api/v2/academia/alunos`** — listar alunos
 
@@ -206,6 +208,7 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 
 ---
+
 
 
 
