@@ -63,7 +63,7 @@ public class Treino {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(alunos, descr, id, nivel);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -75,9 +75,7 @@ public class Treino {
 		if (getClass() != obj.getClass())
 			return false;
 		Treino other = (Treino) obj;
-		return Objects.equals(alunos, other.alunos) && Objects.equals(descr, other.descr)
-				&& Objects.equals(id, other.id) && nivel == other.nivel;
+		return Objects.equals(id, other.id);
 	}
-	
-		
+
 }

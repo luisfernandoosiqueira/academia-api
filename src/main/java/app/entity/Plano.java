@@ -1,11 +1,12 @@
 package app.entity;
 
-import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "TB_PLANO")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Plano {
 
 	@Id
@@ -49,7 +50,7 @@ public class Plano {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(descr, id, valorMensal);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -61,9 +62,6 @@ public class Plano {
 		if (getClass() != obj.getClass())
 			return false;
 		Plano other = (Plano) obj;
-		return Objects.equals(descr, other.descr) && Objects.equals(id, other.id)
-				&& Objects.equals(valorMensal, other.valorMensal);
+		return Objects.equals(id, other.id);
 	}
-			
-	
 }

@@ -1,13 +1,13 @@
 package app.mapper;
 
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import org.springframework.stereotype.Component;
-
 import app.dto.AlunoRequestDTO;
 import app.dto.AlunoResponseDTO;
+import app.dto.PlanoResponseDTO;
+import app.dto.TreinoResponseDTO;
 import app.entity.Aluno;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class AlunoMapper {
@@ -22,10 +22,19 @@ public class AlunoMapper {
     }
 
     public AlunoResponseDTO toResponseDTO(Aluno a) {
-        Long planoId = (a.getPlano() != null ? a.getPlano().getId() : null);
-        Set<Long> treinosIds = a.getTreinos() == null
-                ? Set.of()
-                : a.getTreinos().stream().map(t -> t.getId()).collect(Collectors.toSet());
+        PlanoResponseDTO planoDto = (a.getPlano() == null)
+                ? null
+                : new PlanoResponseDTO(
+                        a.getPlano().getId(),
+                        a.getPlano().getDescr(),
+                        a.getPlano().getValorMensal()
+                  );
+
+        List<TreinoResponseDTO> treinosDto = (a.getTreinos() == null)
+                ? List.of()
+                : a.getTreinos().stream()
+                    .map(t -> new TreinoResponseDTO(t.getId(), t.getDescr(), t.getNivel()))
+                    .toList();
 
         return new AlunoResponseDTO(
                 a.getId(),
@@ -33,8 +42,8 @@ public class AlunoMapper {
                 a.getNome(),
                 a.getDataNascimento(),
                 a.isAtivo(),
-                planoId,
-                treinosIds
+                planoDto,
+                treinosDto
         );
     }
 }

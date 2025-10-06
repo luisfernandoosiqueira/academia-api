@@ -1,5 +1,7 @@
 package app.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -8,6 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "TB_ALUNO")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Aluno {
 
 	@Id
@@ -26,10 +29,13 @@ public class Aluno {
 	private boolean ativo;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "plano_id")
+	@JsonIgnore
 	private Plano plano;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "TB_ALUNO_TREINO", joinColumns = @JoinColumn(name = "aluno_id"), inverseJoinColumns = @JoinColumn(name = "treino_id"))
+	@JsonIgnore
 	private Set<Treino> treinos;
 
 	public Aluno() {
@@ -95,7 +101,7 @@ public class Aluno {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(ativo, cpf, dataNascimento, id, nome, plano, treinos);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -107,9 +113,6 @@ public class Aluno {
 		if (getClass() != obj.getClass())
 			return false;
 		Aluno other = (Aluno) obj;
-		return ativo == other.ativo && Objects.equals(cpf, other.cpf)
-				&& Objects.equals(dataNascimento, other.dataNascimento) && Objects.equals(id, other.id)
-				&& Objects.equals(nome, other.nome) && Objects.equals(plano, other.plano)
-				&& Objects.equals(treinos, other.treinos);
+		return Objects.equals(id, other.id);
 	}
 }

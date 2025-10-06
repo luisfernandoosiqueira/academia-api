@@ -1,9 +1,7 @@
 package app.dto;
 
 public record PlanoResponseDTO(
-        
-		Long id,
+        Long id,
         String descr,
         Double valorMensal
-        
-) { }
+) {}

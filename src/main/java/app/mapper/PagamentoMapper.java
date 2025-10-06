@@ -5,26 +5,19 @@ import app.dto.PagamentoResponseDTO;
 import app.entity.Pagamento;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
-
 @Component
 public class PagamentoMapper {
 
     public Pagamento toEntity(PagamentoRequestDTO dto) {
-       
-    	Pagamento p = new Pagamento();
+        Pagamento p = new Pagamento();
         p.setValorPago(dto.valorPago());
-        p.setStatus(dto.status());
         p.setFormaPagamento(dto.formaPagamento());
-        p.setDataPagamento(dto.dataPagamento() != null ? dto.dataPagamento() : LocalDateTime.now());
+        p.setStatus(dto.status());          
         return p;
-        
     }
 
     public PagamentoResponseDTO toResponseDTO(Pagamento p) {
-        
-    	Long alunoId = (p.getAluno() != null ? p.getAluno().getId() : null);
-
+        Long alunoId = (p.getAluno() != null ? p.getAluno().getId() : null);
         return new PagamentoResponseDTO(
                 p.getId(),
                 p.getDataPagamento(),

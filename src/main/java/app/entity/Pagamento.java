@@ -1,13 +1,17 @@
 package app.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import app.enums.FormaPagamento;
 import app.enums.StatusPagamento;
 import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
 @Table(name = "TB_PAGAMENTO")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Pagamento {
 
 	@Id
@@ -29,6 +33,8 @@ public class Pagamento {
 	private FormaPagamento formaPagamento;
 
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "aluno_id")
+	@JsonIgnore
 	private Aluno aluno;
 
 	public Pagamento() {
@@ -93,22 +99,16 @@ public class Pagamento {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(aluno, dataPagamento, formaPagamento, id, status, valorPago);
+		return Objects.hash(id);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
+		if (obj == null || getClass() != obj.getClass())
 			return false;
 		Pagamento other = (Pagamento) obj;
-		return Objects.equals(aluno, other.aluno) && Objects.equals(dataPagamento, other.dataPagamento)
-				&& formaPagamento == other.formaPagamento && Objects.equals(id, other.id) && status == other.status
-				&& Objects.equals(valorPago, other.valorPago);
+		return Objects.equals(id, other.id);
 	}
-	
-		
 }

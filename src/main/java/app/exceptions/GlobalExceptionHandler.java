@@ -1,6 +1,9 @@
+// src/main/java/app/exceptions/GlobalExceptionHandler.java
 package app.exceptions;
 
-import app.dto.ErrorResponse;
+import app.dto.ErrorResponseDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -15,18 +18,20 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
     @ExceptionHandler(NegocioException.class)
-    public ResponseEntity<ErrorResponse> handleNegocio(NegocioException ex) {
+    public ResponseEntity<ErrorResponseDTO> handleNegocio(NegocioException ex) {
         return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage(), null);
     }
 
     @ExceptionHandler(RecursoNaoEncontradoException.class)
-    public ResponseEntity<ErrorResponse> handleNotFound(RecursoNaoEncontradoException ex) {
+    public ResponseEntity<ErrorResponseDTO> handleNotFound(RecursoNaoEncontradoException ex) {
         return buildResponse(HttpStatus.NOT_FOUND, ex.getMessage(), null);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorResponse> handleValidation(MethodArgumentNotValidException ex) {
+    public ResponseEntity<ErrorResponseDTO> handleValidation(MethodArgumentNotValidException ex) {
         Map<String, String> fieldErrors = new LinkedHashMap<>();
         ex.getBindingResult().getAllErrors().forEach(err -> {
             String field = (err instanceof FieldError fe) ? fe.getField() : err.getObjectName();
@@ -34,14 +39,26 @@ public class GlobalExceptionHandler {
         });
         return buildResponse(HttpStatus.BAD_REQUEST, "Erro de validação", fieldErrors);
     }
+        
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleGeneric(Exception ex) {
-        return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, "Erro interno do servidor", null);
+    public ResponseEntity<ErrorResponseDTO> handleGeneric(Exception ex) {
+       
+        log.error("Erro não tratado", ex);
+
+        // expõe a mensagem real no corpo
+        String msg = ex.getMessage();
+        if (msg == null && ex.getCause() != null) {
+            msg = ex.getCause().getMessage();
+        }
+        if (msg == null) {
+            msg = ex.getClass().getSimpleName();
+        }
+        return buildResponse(HttpStatus.INTERNAL_SERVER_ERROR, msg, null);
     }
 
-    private ResponseEntity<ErrorResponse> buildResponse(HttpStatus status, String message, Map<String, String> fieldErrors) {
-        ErrorResponse body = new ErrorResponse(
+    private ResponseEntity<ErrorResponseDTO> buildResponse(HttpStatus status, String message, Map<String, String> fieldErrors) {
+        ErrorResponseDTO body = new ErrorResponseDTO(
                 LocalDateTime.now(),
                 status.value(),
                 status.getReasonPhrase(),

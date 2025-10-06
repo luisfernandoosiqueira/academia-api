@@ -1,14 +1,14 @@
 package app.dto;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 public record AlunoResponseDTO(
         Long id,
         String cpf,
         String nome,
         LocalDate dataNascimento,
-        Boolean ativo,
-        Long planoId,
-        Set<Long> treinosIds
-) { }
+        boolean ativo,
+        PlanoResponseDTO plano,
+        List<TreinoResponseDTO> treinos
+) {}

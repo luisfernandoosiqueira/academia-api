@@ -3,16 +3,14 @@ package app.dto;
 import java.time.LocalDateTime;
 import java.util.Map;
 
-
-public record ErrorResponse(
+public record ErrorResponseDTO(
         LocalDateTime timestamp,
         int status,
         String error,
         String message,
-        Map<String, String> fieldErrors 
+        Map<String, String> fieldErrors
 ) {
-   
-    public ErrorResponse(int status, String message, LocalDateTime timestamp) {
+    public ErrorResponseDTO(int status, String message, LocalDateTime timestamp) {
         this(timestamp, status, null, message, null);
     }
 }

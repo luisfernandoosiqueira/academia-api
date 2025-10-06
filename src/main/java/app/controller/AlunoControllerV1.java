@@ -43,7 +43,7 @@ public class AlunoControllerV1 {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> remover(@PathVariable Long id) {
         alunoService.delete(id);
-        return ResponseEntity.noContent().build(); 
+        return ResponseEntity.noContent().build();
     }
 
     @PostMapping("/{alunoId}/treinos/{treinoId}")
