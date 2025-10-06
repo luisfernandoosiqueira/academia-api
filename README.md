@@ -110,6 +110,8 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 **DELETE `/api/v2/academia/alunos/{id}`** — remover aluno
 
+<img width="953" height="569" alt="image" src="https://github.com/user-attachments/assets/fe5b9662-85c7-4f97-9738-ba174d3b25b5" />
+
 
 **POST `/api/v2/academia/alunos/{alunoId}/treinos/{treinoId}`** — vincular treino
 
@@ -118,6 +120,7 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 **DELETE `/api/v2/academia/alunos/{alunoId}/treinos/{treinoId}`** — desvincular treino
 
+<img width="952" height="708" alt="image" src="https://github.com/user-attachments/assets/dbfcd6e3-358b-4ddb-8bcb-dd84223dd865" />
 
 ---
 
@@ -184,17 +187,26 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 **POST `/api/v2/academia/alunos/{alunoId}/pagamentos`** — registrar pagamento
 
+<img width="945" height="677" alt="image" src="https://github.com/user-attachments/assets/7a3152d1-e6cd-4831-9d17-fe809e48a821" />
+
 
 **GET `/api/v2/academia/pagamentos`** — listar pagamentos
+
+<img width="962" height="565" alt="image" src="https://github.com/user-attachments/assets/35ba9972-3702-492c-aa29-9decef2c091b" />
 
 
 **GET `/api/v2/academia/pagamentos/{id}`** — buscar por id
 
+<img width="965" height="625" alt="image" src="https://github.com/user-attachments/assets/ecb82585-8a1d-459e-99b3-b5d724c5ec09" />
+
 
 **DELETE `/api/v2/academia/pagamentos/{id}`** — remover pagamento
 
+<img width="952" height="573" alt="image" src="https://github.com/user-attachments/assets/e6e52595-7f0f-4fe1-ba89-014bbe78b91c" />
+
 
 ---
+
 
 
 
