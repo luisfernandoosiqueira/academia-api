@@ -221,7 +221,6 @@ A API gerencia **alunos**, **planos**, **treinos** e **pagamentos**, seguindo um
 
 <img width="952" height="573" alt="image" src="https://github.com/user-attachments/assets/e6e52595-7f0f-4fe1-ba89-014bbe78b91c" />
 
----
 
 
 
